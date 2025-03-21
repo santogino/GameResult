@@ -29,9 +29,7 @@ public class GameResult implements Comparable<GameResult> {
 
     @Override
     public String toString() {
-        return "GameResult{" +
-                "nickname='" + nickname + '\'' +
-                ", punteggio=" + punteggio +
-                '}';
+        return "nickname = " + nickname +
+                ", punteggio = " + punteggio;
     }
 }
