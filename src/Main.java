@@ -38,5 +38,10 @@ public class Main {
         for (GameResult topResults : scoreboard.showTopResults(4)) {
             System.out.println(topResults);
         }
+
+        System.out.println("Suspance Result");
+        for (GameResult suspanceList : scoreboard.getSuspanceResults(scoreboard.showAllResults())){
+            System.out.println(suspanceList);
+        }
     }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Scoreboard {
@@ -33,4 +34,20 @@ public class Scoreboard {
         Collections.reverse(sortedResults);
         return sortedResults.subList(0, k);
     }
+
+    public List<GameResult> getSuspanceResults(List<GameResult> originalResults) {
+        //creare una lista di risultati ordinati in modo decrescente usando il comparator.comparing
+        List<GameResult> sortedResult = new ArrayList<>(originalResults);
+        sortedResult.sort(Comparator.comparing(GameResult::getPunteggio).reversed());
+
+        //aggiungo i punteggi eliminando i primi 2 campi con subList
+        List<GameResult> suspanceResult = new ArrayList<>();
+        suspanceResult.addAll(sortedResult.subList(2, sortedResult.size()));
+
+        //aggiungo i primi due punteggi alla fine
+        suspanceResult.add(sortedResult.get(1));
+        suspanceResult.add(sortedResult.get(0));
+        return suspanceResult;
+    }
+
 }
